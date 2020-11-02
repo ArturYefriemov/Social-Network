@@ -14,10 +14,10 @@ services:
     image: postgres:12.0-alpine
     volumes:
       - tecmint_postgres_data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_USER=django_user
-      - POSTGRES_PASSWORD=django_pass
-      - POSTGRES_DB=tecmintdb
+    env_file:
+      - ./.env.dev
+    ports:
+      - 5433:5432
 
 volumes:
   tecmint_postgres_data:
